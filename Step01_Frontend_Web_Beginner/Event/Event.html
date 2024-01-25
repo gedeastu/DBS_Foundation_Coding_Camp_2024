@@ -1,11 +1,84 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>D</title>
+  <title>Event World</title>
+  <style>
+    .contents {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      border: 2px solid black;
+      padding: 15px;
+    }
+
+    #changeCaption{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+    }
+
+    #generateButton {
+      margin-top: 5px;
+      margin-bottom: 15px;;
+    }
+
+    body .border1,.border2,.border3,.border4 {
+      width: 60%;
+    
+      margin: 8px;
+      padding: 5px;
+      border: 2px solid black;
+    }
+
+    #borderCapturing1,#borderCapturing2,#borderCapturing3,#borderCapturing4{
+      width: 60%;
+    
+      margin: 8px;
+      padding: 5px;
+      border: 2px solid black;
+    }
+  </style>
 </head>
 <body>
-    
+<div class="contents" align="center" hidden>
+  <button id="incrementButton">Tekan Aku :)</button>
+  <h3>Kamu sudah menekan tombol di atas sebanyak <span id="count">0</span></h3>
+  <div id="hiddenGift">
+  </div>
+  <div id="changeCaption">
+    <h3 id="caption">Silakan tekan salah satu tombol di bawah...</h3>
+    <button id="tombol">Ubah Caption</button>
+  </div>
+
+  <!-- <div class="border1" onclick="alert('ELEMEN LANGIT')" align="center">
+    LANGIT
+    <div class="border2" onclick="alert('ELEMEN LUAR')" align="center">
+      LUAR
+      <div class="border3" onclick="alert('ELEMEN TENGAH')" align="center">
+        TENGAH
+        <div class="border4" onclick="alert('ELEMEN DALAM')" align="center">DALAM</div>
+      </div>
+    </div>
+  </div> -->
+
+  <br>
+
+  <!-- <div id="borderCapturing1" align="center" id="langit">
+    LANGIT
+    <div id="borderCapturing2" align="center" id="luar">
+      LUAR
+      <div id="borderCapturing3" align="center" id="tengah">
+        TENGAH
+        <div id="borderCapturing4" align="center" id="dalam">DALAM</div>
+      </div>
+    </div>
+  </div> -->
+
+</div>
+<button onclick="welcome()">Show Content</button>
+ 
+<script src="./Event.js"></script>
 </body>
 </html>
