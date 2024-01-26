@@ -12,8 +12,8 @@ document.addEventListener('DOMContentLoaded', function () {
         document.getElementById('sisaKarakter').innerText = sisaKarakterUpdate.toString();
         
         if (sisaKarakterUpdate === 0) {
-          document.getElementById('sisaKarakter').innerText = 'Karakter telah mencapa   i batas maksimal!';
-          const NotifikasiSisaKarakter = document.getElementById('notifikasiSisaKarakter').style.visibility = 'visible'
+          document.getElementById('sisaKarakter').innerText = 'Karakter telah mencapai batas maksimal!';
+          document.getElementById('notifikasiSisaKarakter').style.visibility = 'visible'
         } else if (sisaKarakterUpdate <= 5) {
           document.getElementById('notifikasiSisaKarakter').style.color = 'red';
         } else {
@@ -22,11 +22,11 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 
     document.getElementById('inputNama').addEventListener('focus',function(){
-        const NotifikasiSisaKarakter = document.getElementById('notifikasiSisaKarakter').style.visibility = 'visible'
+        document.getElementById('notifikasiSisaKarakter').style.visibility = 'visible'
     })
 
     document.getElementById('inputNama').addEventListener('blur',function(){
-        const NotifikasiSisaKarakter = document.getElementById('notifikasiSisaKarakter').style.visibility = 'hidden'
+        document.getElementById('notifikasiSisaKarakter').style.visibility = 'hidden'
     })
 
     document.getElementById('inputCaptcha').addEventListener('change',function(){
