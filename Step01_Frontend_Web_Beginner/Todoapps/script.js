@@ -9,23 +9,6 @@ document.addEventListener('DOMContentLoaded',function() {
     });
 });
 
-function addTodo() {
-    const textTodo = document.getElementById('title').value;
-    const timestamp = document.getElementById('date').value;
-
-    const generateID = generateId();
-    const todoObject = generateTodoObject(generateID,textTodo,timestamp,false);
-
-    todos.push(todoObject);
-
-    document.dispatchEvent(new Event(RENDER_EVENT));
-
-    document.addEventListener(RENDER_EVENT,function(){
-        console.log(todos)
-    })
-
-}
-
 function makeTodo(todoObject){
     const textTitle = document.createElement('h2');
     textTitle.innerText = todoObject.task;
@@ -42,6 +25,30 @@ function makeTodo(todoObject){
     container.append(textContainer);
     container.setAttribute('id',`todo-${todoObject.id}`);
     return container;
+}
+
+function addTodo() {
+    const textTodo = document.getElementById('title').value;
+    const timestamp = document.getElementById('date').value;
+
+    const generateID = generateId();
+    const todoObject = generateTodoObject(generateID,textTodo,timestamp,false);
+
+    todos.push(todoObject);
+
+    document.dispatchEvent(new Event(RENDER_EVENT));
+
+    document.addEventListener(RENDER_EVENT,function(){
+        //console.log(todos)
+        const uncompletedTODOList = document.getElementById('todos');
+        uncompletedTODOList.innerHTML = "";
+
+        for(const todoItem of todos){
+            const todoElement = makeTodo(todoItem)
+            uncompletedTODOList.append(todoElement)
+        }
+    })
+
 }
 
 function generateId() {
