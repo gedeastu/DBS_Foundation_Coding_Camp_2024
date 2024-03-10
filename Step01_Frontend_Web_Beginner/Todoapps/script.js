@@ -22,6 +22,32 @@ function addTaskToCompleted(todoId){
     document.dispatchEvent(new Event(RENDER_EVENT));
 }
 
+function undoTaskFromCompleted(todoId) {
+    const todoTarget = findTodo(todoId);
+   
+    if (todoTarget == null) return;
+   
+    todoTarget.isCompleted = false;
+    document.dispatchEvent(new Event(RENDER_EVENT));
+}
+
+function removeTaskFromCompleted(todoId) { 
+    const todoTarget = findTodoIndex(todoId)
+    if (todoTarget == -1) return;
+    todos.splice(todoTarget,1);
+    document.dispatchEvent(new Event(RENDER_EVENT))
+ }
+
+function findTodoIndex(todoId) {
+    for (const index in todos) {
+      if (todos[index].id === todoId) {
+        return index;
+      }
+    }
+   
+    return -1;
+}
+
 function findTodo(todoId) {
     for (const todoItem of todos) {
         if (todoItem.id === todoId) {
@@ -99,6 +125,11 @@ function addTodo() {
         //in void innnerHTML 
         uncompletedTODOList.innerHTML = "";
 
+        //variable to take element with completed-todos ID 
+        const completedTODOList = document.getElementById('completed-todos');
+        //in void innnerHTML 
+        completedTODOList.innerHTML = '';
+
         //doing looping of todos as a loop range
         for(const todoItem of todos){
             //make todoElement variable with makeTodo() as a value with parameter is todoItem
@@ -107,6 +138,8 @@ function addTodo() {
             if (!todoElement.isCompleted) {
              //use append() on uncompletedTODOList with value is todoElement
             uncompletedTODOList.append(todoElement)   
+            }else{
+                completedTODOList.append(todoElement)
             }
         }
     })

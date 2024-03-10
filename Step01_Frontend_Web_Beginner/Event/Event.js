@@ -84,11 +84,11 @@ function welcome(){
 
     const divs = document.getElementsByTagName('div');
     //Event Bubbling
-    // for (let bub of divs) {
-    //     bub.addEventListener('click', function () {
-    //         alert('ELEMEN ' + bub.getAttribute('id').toUpperCase());
-    //     });
-    // }
+    for (let bub of divs) {
+        bub.addEventListener('click', function () {
+            alert('ELEMEN ' + bub.getAttribute('id').toUpperCase());
+        });
+    }
 
     //Event Capturing
     // for (let cap of divs) {
